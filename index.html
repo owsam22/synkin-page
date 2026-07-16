@@ -330,7 +330,37 @@
     font-size:14px; color:var(--text-dim); background:var(--surface);
   }
   .req-item .req-dot{width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0;}
-  .req-item:hover{border-color:var(--accent); color: whitesmoke;transform:translateY(-2px);}
+
+  .req-note{
+    margin-top:24px; border:1px solid var(--border); border-radius:var(--radius);
+    padding:24px; background:var(--surface);
+    display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center;
+  }
+  @media (max-width:760px){ .req-note{grid-template-columns:1fr;} }
+  .req-note-text{display:flex; gap:12px; align-items:flex-start;}
+  .req-note-icon{
+    flex-shrink:0; width:28px; height:28px; border-radius:7px;
+    background:var(--accent-glow); color:var(--accent);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:14px;
+  }
+  .req-note-text p{color:var(--text-dim); font-size:14px; line-height:1.65;}
+  .req-note-text p code{
+    background:var(--bg); border:1px solid var(--border-soft); border-radius:4px;
+    padding:1px 6px; color:var(--text); font-size:12.5px;
+  }
+  .code-block{
+    background:var(--bg); border:1px solid var(--border-soft); border-radius:8px;
+    overflow:hidden;
+  }
+  .code-block-header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:9px 14px; border-bottom:1px solid var(--border-soft);
+    font-family:var(--mono); font-size:11.5px; color:var(--text-faint);
+    background:var(--surface-2);
+  }
+  .code-block pre{padding:14px 16px; overflow-x:auto;}
+  .code-block code{font-family:var(--mono); font-size:13px; color:var(--text); line-height:1.6;}
 
   /* ---------- Documentation ---------- */
   .doc-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
@@ -516,6 +546,25 @@
       <div class="req-item"><span class="req-dot"></span><a href="https://developer.android.com/tools/releases/platform-tools" target="_blank">ADB installed</a></div>
       <div class="req-item"><span class="req-dot"></span>USB debugging enabled</div>
     </div>
+
+        <div class="req-note reveal">
+      <div class="req-note-text">
+        <span class="req-note-icon">i</span>
+        <p>Using <strong style="color:var(--text);">Vite</strong>? Make sure your dev server is reachable through ADB Reverse. If it's only listening on <code>127.0.0.1</code>, add this to your <code>vite.config.ts</code>.</p>
+      </div>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span>vite.config.ts</span>
+          <button class="copy-btn" data-copy="server: {
+  host: true,
+},"></button>
+        </div>
+        <pre><code>server: {
+  host: true,
+},</code></pre>
+      </div>
+    </div>
+
   </div>
 </section>
 
