@@ -208,6 +208,23 @@
     font-family:var(--mono); font-size:12px; color:var(--text-faint);
     text-transform:uppercase; letter-spacing:0.05em; margin-bottom:14px; display:block;
   }
+  .install-card .code-row + .code-row{margin-top:10px;}
+
+  /* ---------- Update banner ---------- */
+  .update-banner{
+    margin-top:24px; display:grid; grid-template-columns:1.1fr 1fr; gap:32px;
+    align-items:center; border:1px solid var(--border); border-radius:var(--radius);
+    padding:32px; background:linear-gradient(120deg, var(--accent-glow), transparent 55%), var(--surface);
+  }
+  @media (max-width:760px){ .update-banner{grid-template-columns:1fr; padding:26px;} }
+  .update-banner-text .kicker{margin-bottom:10px;}
+  .update-banner-text h3{font-family:var(--display); font-size:19px; font-weight:600; margin-bottom:8px;}
+  .update-banner-text p{color:var(--text-dim); font-size:14.5px; line-height:1.6;}
+  .update-commands{display:flex; flex-direction:column; gap:10px;}
+  .update-commands .or-divider{
+    font-family:var(--mono); font-size:11px; color:var(--text-faint);
+    text-align:center; letter-spacing:0.05em;
+  }
   .code-row{
     display:flex; align-items:center; justify-content:space-between;
     background:var(--bg); border:1px solid var(--border-soft); border-radius:7px;
@@ -227,22 +244,6 @@
   .copy-btn.copied{border-color:var(--accent); color:var(--accent); background:var(--accent-glow);}
   .copy-btn svg{width:14px; height:14px;}
 
-  /* ---------- Update banner ---------- */
-    .update-banner{
-    margin-top:24px; display:grid; grid-template-columns:1.1fr 1fr; gap:32px;
-    align-items:center; border:1px solid var(--border); border-radius:var(--radius);
-    padding:32px; background:linear-gradient(120deg, var(--accent-glow), transparent 55%), var(--surface);
-  }
-  @media (max-width:760px){ .update-banner{grid-template-columns:1fr; padding:26px;} }
-  .update-banner-text .kicker{margin-bottom:10px;}
-  .update-banner-text h3{font-family:var(--display); font-size:19px; font-weight:600; margin-bottom:8px;}
-  .update-banner-text p{color:var(--text-dim); font-size:14.5px; line-height:1.6;}
-  .update-commands{display:flex; flex-direction:column; gap:10px;}
-  .update-commands .or-divider{
-    font-family:var(--mono); font-size:11px; color:var(--text-faint);
-    text-align:center; letter-spacing:0.05em;
-  }
-  
   /* ---------- How it works timeline ---------- */
   .timeline{position:relative; max-width:760px; margin:0 auto;}
   .timeline::before{
@@ -349,8 +350,6 @@
     background:var(--bg); border:1px solid var(--border-soft); border-radius:4px;
     padding:1px 6px; color:var(--text); font-size:12.5px;
   }
-  .req-item:hover{border-color:var(--accent); color: whitesmoke;transform:translateY(-2px);}
-
   .code-block{
     background:var(--bg); border:1px solid var(--border-soft); border-radius:8px;
     overflow:hidden;
@@ -451,10 +450,10 @@
   <nav>
     <div class="logo"><span class="logo-mark"></span>Synkin</div>
     <div class="nav-links">
-      <a href="#requirements">Requirements</a>
-      <a href="#features">Features</a>
       <a href="#how">How it works</a>
+      <a href="#features">Features</a>
       <a href="#faq">FAQ</a>
+      <a href="#requirements">Requirements</a>
     </div>
     <a class="nav-cta" href="#download">npm i -g synkin</a>
   </nav>
@@ -466,8 +465,8 @@
     <h1>Preview your localhost<br>on Android. <span class="accent-text">Instantly.</span></h1>
     <p class="hero-sub">Synkin is a lightweight CLI that bridges your local dev server to your Android device over USB. No IP addresses, no firewall rules, no Wi‑Fi setup — plug in your phone and run one command.</p>
     <div class="hero-actions">
-      <a href="#install" class="btn btn-primary">Install with npm</a>
-      <a href="https://github.com/owsam22/synkin-page" class="btn btn-secondary">View on GitHub</a>
+      <a href="#download" class="btn btn-primary">Install with npm</a>
+      <a href="https://github.com/owsam22/synkin" class="btn btn-secondary">View on GitHub</a>
     </div>
 
     <div class="terminal" id="hero-terminal">
@@ -502,7 +501,6 @@
       <h2>Three commands. That's the whole setup.</h2>
       <p class="section-desc">Install globally, confirm it's there, then run it from your project directory.</p>
     </div>
-
     <div class="install-grid reveal-stagger">
       <div class="install-card">
         <span class="install-label">01 · Install</span>
@@ -517,7 +515,7 @@
         <div class="code-row"><code>synkin run</code><button class="copy-btn" data-copy="synkin run"></button></div>
       </div>
     </div>
-    
+
     <div class="update-banner reveal">
       <div class="update-banner-text">
         <span class="kicker">Already installed?</span>
@@ -530,72 +528,76 @@
         <div class="code-row"><code>npm install -g synkin@latest</code><button class="copy-btn" data-copy="npm install -g synkin@latest"></button></div>
       </div>
     </div>
-
-  </div>
- </section>
-
-<section class="section section-alt" id="requirements">
-  <div class="wrap">
-    <div class="section-head center reveal">
-      <span class="kicker">Requirements</span>
-      <h2>What you'll need</h2>
-    </div>
-    <div class="req-list reveal-stagger">
-      <div class="req-item"><span class="req-dot"></span>Windows</div>
-      <div class="req-item"><span class="req-dot"></span>Node.js 18+</div>
-      <div class="req-item"><span class="req-dot"></span>Android device</div>
-      <div class="req-item"><span class="req-dot"></span>USB cable</div>
-      <div class="req-item"><span class="req-dot"></span><a href="https://developer.android.com/tools/releases/platform-tools" target="_blank">ADB installed</a></div>
-      <div class="req-item"><span class="req-dot"></span>USB debugging enabled</div>
-    </div>
-
-        <div class="req-note reveal">
-      <div class="req-note-text">
-        <span class="req-note-icon">i</span>
-        <p>Using <strong style="color:var(--text);">Vite</strong>? Make sure your dev server is reachable through ADB Reverse. If it's only listening on <code>127.0.0.1</code>, add this to your <code>vite.config.ts</code>.</p>
-      </div>
-      <div class="code-block">
-        <div class="code-block-header">
-          <span>vite.config.ts</span>
-          <button class="copy-btn" data-copy="server: {
-  host: true,
-},"></button>
-        </div>
-        <pre><code>server: {
-  host: true,
-},</code></pre>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<section class="section" id="frameworks">
+<section class="section section-alt" id="how">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="kicker">Supported frameworks</span>
-      <h2>Works with the stack you already use</h2>
+      <span class="kicker">How it works</span>
+      <h2>From cable to Chrome in four steps</h2>
+      <p class="section-desc">Synkin handles device discovery, port forwarding, and browser launch — you just plug in.</p>
     </div>
-    <div class="fw-cols reveal-stagger">
-      <div>
-        <div class="fw-col-title">Frontend</div>
-        <div class="fw-chips">
-          <span class="fw-chip">React</span>
-          <span class="fw-chip">Vite</span>
-          <span class="fw-chip">Next.js</span>
-          <span class="fw-chip">Angular</span>
-          <span class="fw-chip">Static HTML</span>
-        </div>
+    <div class="timeline">
+      <div class="tl-step reveal">
+        <div class="tl-num">1</div>
+        <h3>Start your project</h3>
+        <p>Run your dev server as usual, in your own terminal.</p>
+        <div class="code-row"><code>npm run dev</code><button class="copy-btn" data-copy="npm run dev"></button></div>
       </div>
-      <div>
-        <div class="fw-col-title">Backend</div>
-        <div class="fw-chips">
-          <span class="fw-chip">Express</span>
-          <span class="fw-chip">NestJS</span>
-          <span class="fw-chip">FastAPI</span>
-          <span class="fw-chip">Flask</span>
-          <span class="fw-chip">Django</span>
-        </div>
+      <div class="tl-step reveal">
+        <div class="tl-num">2</div>
+        <h3>Connect your phone</h3>
+        <p>Plug in your Android device with a USB cable and enable USB debugging.</p>
+      </div>
+      <div class="tl-step reveal">
+        <div class="tl-num">3</div>
+        <h3>Run Synkin</h3>
+        <div class="code-row"><code>synkin run</code><button class="copy-btn" data-copy="synkin run"></button></div>
+      </div>
+      <div class="tl-step reveal">
+        <div class="tl-num">4</div>
+        <h3>Synkin takes it from here</h3>
+        <ul class="tl-list">
+          <li>Detects your Android device</li>
+          <li>Detects your running project, frontend and backend</li>
+          <li>Configures ADB reverse</li>
+          <li>Opens Chrome and connects it to localhost</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="kicker">Why Synkin</span>
+      <h2>Skip everything you used to do by hand</h2>
+    </div>
+    <div class="compare reveal-stagger">
+      <div class="compare-card">
+        <div class="compare-title">Before Synkin</div>
+        <ul>
+          <li><span class="mark no">✕</span>Find your local IP address</li>
+          <li><span class="mark no">✕</span>Disable your firewall</li>
+          <li><span class="mark no">✕</span>Configure the LAN</li>
+          <li><span class="mark no">✕</span>Change backend URLs</li>
+          <li><span class="mark no">✕</span>Worry about CORS</li>
+          <li><span class="mark no">✕</span>Remember which ports are open</li>
+          <li><span class="mark no">✕</span>Reconnect after every restart</li>
+        </ul>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-title">With Synkin</div>
+        <ul>
+          <li><span class="mark yes">✓</span>USB only</li>
+          <li><span class="mark yes">✓</span>localhost just works</li>
+          <li><span class="mark yes">✓</span>Automatic device discovery</li>
+          <li><span class="mark yes">✓</span>Chrome launches on its own</li>
+          <li><span class="mark yes">✓</span>Backend requests work out of the box</li>
+          <li><span class="mark yes">✓</span>Zero configuration</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -642,35 +644,32 @@
   </div>
 </section>
 
-<section class="section" id="why">
+<section class="section" id="frameworks">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="kicker">Why Synkin</span>
-      <h2>Skip everything you used to do by hand</h2>
+      <span class="kicker">Supported frameworks</span>
+      <h2>Works with the stack you already use</h2>
     </div>
-    <div class="compare reveal-stagger">
-      <div class="compare-card">
-        <div class="compare-title">Before Synkin</div>
-        <ul>
-          <li><span class="mark no">✕</span>Find your local IP address</li>
-          <li><span class="mark no">✕</span>Disable your firewall</li>
-          <li><span class="mark no">✕</span>Configure the LAN</li>
-          <li><span class="mark no">✕</span>Change backend URLs</li>
-          <li><span class="mark no">✕</span>Worry about CORS</li>
-          <li><span class="mark no">✕</span>Remember which ports are open</li>
-          <li><span class="mark no">✕</span>Reconnect after every restart</li>
-        </ul>
+    <div class="fw-cols reveal-stagger">
+      <div>
+        <div class="fw-col-title">Frontend</div>
+        <div class="fw-chips">
+          <span class="fw-chip">React</span>
+          <span class="fw-chip">Vite</span>
+          <span class="fw-chip">Next.js</span>
+          <span class="fw-chip">Angular</span>
+          <span class="fw-chip">Static HTML</span>
+        </div>
       </div>
-      <div class="compare-card good">
-        <div class="compare-title">With Synkin</div>
-        <ul>
-          <li><span class="mark yes">✓</span>USB only</li>
-          <li><span class="mark yes">✓</span>localhost just works</li>
-          <li><span class="mark yes">✓</span>Automatic device discovery</li>
-          <li><span class="mark yes">✓</span>Chrome launches on its own</li>
-          <li><span class="mark yes">✓</span>Backend requests work out of the box</li>
-          <li><span class="mark yes">✓</span>Zero configuration</li>
-        </ul>
+      <div>
+        <div class="fw-col-title">Backend</div>
+        <div class="fw-chips">
+          <span class="fw-chip">Express</span>
+          <span class="fw-chip">NestJS</span>
+          <span class="fw-chip">FastAPI</span>
+          <span class="fw-chip">Flask</span>
+          <span class="fw-chip">Django</span>
+        </div>
       </div>
     </div>
   </div>
@@ -733,39 +732,36 @@
   </div>
 </section>
 
-<section class="section section-alt" id="how">
+<section class="section section-alt" id="requirements">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="kicker">How it works</span>
-      <h2>From cable to Chrome in four steps</h2>
-      <p class="section-desc">Synkin handles device discovery, port forwarding, and browser launch — you just plug in.</p>
+      <span class="kicker">Requirements</span>
+      <h2>What you'll need</h2>
     </div>
-    <div class="timeline">
-      <div class="tl-step reveal">
-        <div class="tl-num">1</div>
-        <h3>Start your project</h3>
-        <p>Run your dev server as usual, in your own terminal.</p>
-        <div class="code-row"><code>npm run dev</code><button class="copy-btn" data-copy="npm run dev"></button></div>
+    <div class="req-list reveal-stagger">
+      <div class="req-item"><span class="req-dot"></span>Windows</div>
+      <div class="req-item"><span class="req-dot"></span>Node.js 18+</div>
+      <div class="req-item"><span class="req-dot"></span>Android device</div>
+      <div class="req-item"><span class="req-dot"></span>USB cable</div>
+      <div class="req-item"><span class="req-dot"></span><a href="https://developer.android.com/tools/releases/platform-tools" target="_blank">ADB installed</a></div>
+      <div class="req-item"><span class="req-dot"></span>USB debugging enabled</div>
+    </div>
+
+    <div class="req-note reveal">
+      <div class="req-note-text">
+        <span class="req-note-icon">i</span>
+        <p>Using <strong style="color:var(--text);">Vite</strong>? Make sure your dev server is reachable through ADB Reverse. If it's only listening on <code>127.0.0.1</code>, add this to your <code>vite.config.ts</code>.</p>
       </div>
-      <div class="tl-step reveal">
-        <div class="tl-num">2</div>
-        <h3>Connect your phone</h3>
-        <p>Plug in your Android device with a USB cable and enable USB debugging.</p>
-      </div>
-      <div class="tl-step reveal">
-        <div class="tl-num">3</div>
-        <h3>Run Synkin</h3>
-        <div class="code-row"><code>synkin run</code><button class="copy-btn" data-copy="synkin run"></button></div>
-      </div>
-      <div class="tl-step reveal">
-        <div class="tl-num">4</div>
-        <h3>Synkin takes it from here</h3>
-        <ul class="tl-list">
-          <li>Detects your Android device</li>
-          <li>Detects your running project, frontend and backend</li>
-          <li>Configures ADB reverse</li>
-          <li>Opens Chrome and connects it to localhost</li>
-        </ul>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span>vite.config.ts</span>
+          <button class="copy-btn" data-copy="server: {
+  host: true,
+},"></button>
+        </div>
+        <pre><code>server: {
+  host: true,
+},</code></pre>
       </div>
     </div>
   </div>
@@ -789,7 +785,7 @@
         <div class="doc-icon">⌥</div>
         <h3>GitHub repository</h3>
         <p>Browse the source, star the project, or fork it.</p>
-        <a class="doc-link" href="https://github.com/owsam22/synkin-page" target="_blank">View on GitHub <span class="arrow">→</span></a>
+        <a class="doc-link" href="https://github.com/owsam22/synkin" target="_blank">View on GitHub <span class="arrow">→</span></a>
       </div>
       <div class="doc-card">
         <div class="doc-icon">⚑</div>
@@ -815,7 +811,7 @@
     </div>
     <div class="roadmap reveal-stagger">
       <div class="rm-card">
-        <span class="rm-version">v0.1.2</span>
+        <span class="rm-version">v0.2</span>
         <ul>
           <li>More framework detection</li>
           <li>Better diagnostics</li>
@@ -862,11 +858,6 @@
         <div class="faq-a">No. Your frontend can keep using localhost as-is.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Does it support CORS policies?<span class="plus">+</span></button>
-        <div class="faq-a">Yes. Synkin handles CORS automatically and you can interact with your backend independently as usual.</div>
-
-      </div>
-      <div class="faq-item">
         <button class="faq-q">Does it work with APIs?<span class="plus">+</span></button>
         <div class="faq-a">Yes. Backend requests work through ADB reverse.</div>
       </div>
@@ -892,7 +883,7 @@
       <h2>Start previewing on device</h2>
       <p>One install, and your phone is a real testing device again.</p>
       <div class="code-row"><code>npm install -g synkin</code><button class="copy-btn" data-copy="npm install -g synkin"></button></div>
-      <a href="https://github.com/owsam22/synkin-page" class="btn btn-primary" target="_blank">Install now</a>
+      <a href="#" class="btn btn-primary">Install now</a>
     </div>
   </div>
 </section>
@@ -910,17 +901,17 @@
           <a href="https://github.com/owsam22/synkin-page" target="_blank">GitHub</a>
           <a href="https://www.npmjs.com/package/synkin" target="_blank">npm</a>
           <a href="https://owsam22.github.io/synkin" target="_blank">Documentation</a>
+          <a href="https://github.com/owsam22/synkin-page/issues" target="_blank">Issues</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Community</div>
           <a href="https://github.com/owsam22/synkin-page/blob/main/LICENSE" target="_blank">MIT License</a>
-          <a href="https://github.com/owsam22/synkin-page/issues" target="_blank">Report an Issue</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Synkin. MIT License.</span>
-      <span>Made by <a href="https://samarpan-portfolio.netlify.app/" target="_blank">Samarpan</a></span>
+      <span>Made by Samarpan</span>
     </div>
   </div>
 </footer>
