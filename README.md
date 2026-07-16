@@ -9,7 +9,7 @@
 [![Platform](https://img.shields.io/badge/platform-Windows-39d98a.svg)](#requirements)
 [![Android](https://img.shields.io/badge/device-Android-39d98a.svg)](#requirements)
 
-[Install](#installation) · [Usage](#usage) · [Docs](https://owsam22.github.io/synkin-page) · [Report an issue](https://github.com/owsam22/synkin/issues)
+[Install](#installation) · [Usage](#usage) · [Docs](https://owsam22.github.io/synkin-page) · [Report an issue](https://github.com/owsam22/synkin-page/issues)
 
 </div>
 
