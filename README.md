@@ -9,7 +9,7 @@
 [![Platform](https://img.shields.io/badge/platform-Windows-39d98a.svg)](#requirements)
 [![Android](https://img.shields.io/badge/device-Android-39d98a.svg)](#requirements)
 
-[Install](#installation) · [Usage](#usage) · [Docs](https://owsam22.github.io/synkin-page) · [Report an issue](https://github.com/owsam22/synkin-page/issues)
+[Install](#installation) · [Usage](#usage) · [Website](https://owsam22.github.io/synkin-page) · [Report an issue](https://github.com/owsam22/synkin-page/issues)
 
 </div>
 
@@ -23,9 +23,12 @@ No IP addresses. No firewall configuration. No Wi-Fi setup.
 ```bash
 npm install -g synkin
 ```
+
 ```bash
 synkin run
 ```
+
+For a visual walkthrough, check out the **[website](https://owsam22.github.io/synkin-page)**.
 
 ---
 
@@ -69,7 +72,7 @@ synkin run
 - An Android device
 - A USB cable
 - USB debugging enabled on the device
-- [ Android Platform Tools -ADB ](https://developer.android.com/tools/releases/platform-tools)
+- [Android Platform Tools (ADB)](https://developer.android.com/tools/releases/platform-tools)
 
 Verify ADB is installed:
 
@@ -104,6 +107,12 @@ Verify the installation:
 
 ```bash
 synkin --version
+```
+
+To update later:
+
+```bash
+npm update -g synkin
 ```
 
 ---
@@ -166,13 +175,15 @@ That's it — your project is live on-device.
 
 ## Supported frameworks
 
-| Frontend | Backend |
-|---|---|
-| React | Express.js |
-| Vite | NestJS |
-| Next.js | FastAPI |
-| Angular | Flask |
-| Static HTML | Django |
+| Frontend | Backend | Database |
+|---|---|---|
+| React | Express.js | MongoDB |
+| Vite | NestJS | PostgreSQL |
+| Next.js | FastAPI | MySQL |
+| Angular | Flask | SQLite |
+| Static HTML | Django | |
+
+Database support means Synkin doesn't interfere with your backend's own connection — as long as your backend server is running, its database connection works exactly as it would locally.
 
 More frameworks will be added in future releases.
 
@@ -228,8 +239,8 @@ Your Vite server must be reachable through ADB Reverse. If it's only listening o
 
 ```ts
 server: {
-  host: true
-}
+  host: true,
+},
 ```
 
 ---
@@ -267,25 +278,6 @@ Make sure your backend server is running *before* starting Synkin.
 
 ---
 
-## Roadmap
-
-**v0.2**
-- Better project detection
-- Improved framework support
-- Automatic update notifications
-- Better error reporting
-
-**v0.3**
-- Multiple device support
-- Better diagnostics
-- Improved performance
-
-**v1.0**
-- Stable release
-- Extended framework support
-- Enhanced developer experience
-
----
 
 ## Contributing
 
@@ -293,12 +285,12 @@ Contributions, suggestions, and bug reports are welcome. If you find a bug or ha
 
 ## License
 
-Released under the [MIT License](LICENCE).
+Released under the [MIT License](LICENSE).
 
 ---
 
 <div align="center">
 
-Made with ❤️ by **Samarpan**
+Made with ❤️ by **[Samarpan](https://samarpan-portfolio.vercel.app)**
 
 </div>
