@@ -1,6 +1,8 @@
 <div align="center">
 
-# Synkin
+# Synkin — Test Localhost on Android over USB
+
+<img href="./og-image.png" height="60px" width="60px">
 
 **Instantly preview your local web apps on Android — over USB.**
 
@@ -14,6 +16,9 @@
 </div>
 
 ---
+Synkin is a free open-source npm CLI that lets developers test localhost websites on Android over USB using ADB Reverse.
+
+It automatically detects React, Vite, Next.js, Express, FastAPI, Flask, Django and HTML projects, forwards localhost ports, launches Chrome on Android and supports backend APIs without Wi-Fi or local IP configuration.
 
 Synkin is a lightweight CLI that bridges your local development server to an Android device over USB using ADB. It automatically discovers your running dev server, forwards the required ports, and opens Chrome on your connected device.
 
@@ -277,7 +282,10 @@ synkin run
 Make sure your backend server is running *before* starting Synkin.
 
 ---
+## Summary 
+Synkin lets you access localhost on Android over USB.
 
+Unlike Wi-Fi based solutions, Synkin uses ADB Reverse so backend APIs continue working without changing your application's base URL.
 
 ## Contributing
 
