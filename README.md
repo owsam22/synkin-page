@@ -2,7 +2,9 @@
 
 # Synkin — Test Localhost on Android over USB
 
-<img href="./og-image.png" height="60px" width="60px">
+<a href="https://npmjs.com/package/synkin">
+<img src="./og-image.png" height="150px" width="150px">
+</a>
 
 **Instantly preview your local web apps on Android — over USB.**
 
@@ -299,6 +301,6 @@ Released under the [MIT License](LICENSE).
 
 <div align="center">
 
-Made with ❤️ by **[Samarpan](https://samarpan-portfolio.vercel.app)**
+Made with ❤️ by **[Samarpan ~ owsam22](https://samarpan-portfolio.vercel.app)**
 
 </div>
