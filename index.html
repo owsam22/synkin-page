@@ -398,6 +398,7 @@
 
 /* Each text block takes up a full screen height */
 .text-layer {
+  position: relative;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -411,14 +412,44 @@
 
 /* Styling adjustment to make the text crisp over video frames */
 .frame-first h1 {
-  font-size: 3.5rem;
+  font-size: clamp(32px, 6vw, 3.5rem);
   margin-bottom: 20px;
   text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.frame-first .hero-sub{
+  color:#d7dadd;
+  text-shadow:0 2px 8px rgba(0,0,0,0.55);
 }
 
 .frame-second {
   background: linear-gradient(to bottom, transparent 0%, #0a0c10 100%);
 }
+
+.hero-sub-detailed{
+  max-width:640px; margin:0 auto 32px;
+  font-size:18px; line-height:1.75; color:#e4e6e8;
+  text-shadow:0 2px 10px rgba(0,0,0,0.55);
+}
+
+.hero-trust{
+  margin-top:32px;
+  font-family:var(--mono); font-size:12.5px; letter-spacing:0.04em;
+  color:rgba(242,243,241,0.6);
+}
+
+.scroll-cue{
+  position:absolute; left:50%; bottom:36px; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em;
+  color:rgba(242,243,241,0.65); text-transform:uppercase;
+  animation:cueFloat 2.2s ease-in-out infinite;
+}
+.scroll-cue svg{width:16px; height:16px;}
+@keyframes cueFloat{
+  0%,100%{ transform:translate(-50%,0); opacity:0.55; }
+  50%{ transform:translate(-50%,8px); opacity:1; }
+}
+
 
 /* Normal sections that appear below the sticky zone */
 .normal-section {
@@ -817,8 +848,8 @@
   
   <!-- The video element that stays stuck during the hero section -->
   <div class="sticky-video-container">
-    <video autoplay loop muted playsinline poster="synkin demo poster.png">
-      <source src="synkin demo ai generated.mp4" type="video/mp4">
+    <video autoplay loop muted playsinline poster="synkin-demo-poster.png">
+      <source src="synkin-demo.mp4" type="video/mp4">
     </video>
     <div class="video-overlay"></div>
   </div>
@@ -833,7 +864,11 @@
           <a href="https://www.npmjs.com/package/synkin" target="_blank">v0.2.2 is live on npm</a>
         </div>
         <h1>Preview your localhost<br>on Your Phone. <span class="accent-text">Instantly.</span></h1>
-        <p class="hero-sub">Scroll to see how it works.</p>
+        <p class="hero-sub">Watch it happen — plug in, run one command, and your site is live on your Android device.</p>
+      </div>
+      <div class="scroll-cue">
+        Scroll to know more
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
       </div>
     </section>
 
@@ -841,32 +876,22 @@
     <section class="text-layer frame-second">
       <div class="wrap">
         <p class="hero-sub-detailed">
-          Synkin is a lightweight CLI that bridges your local dev server to your Android device over USB. 
-          No IP addresses, no firewall rules, no Wi‑Fi setup — plug in your phone and run one command.
+          No IP addresses. No firewall rules. No Wi‑Fi setup. Just plug in your phone,
+          run one command, and Chrome opens instantly with your localhost site — fully responsive, on real hardware.
         </p>
-        
+
         <div class="hero-actions">
           <a href="#install" class="btn btn-primary">Install Now</a>
-          <a href="https://www.github.com/owsam22/synkin-page" class="btn btn-secondary">View on Github</a>
+          <a href="https://www.github.com/owsam22/synkin-page" class="btn btn-secondary">View on GitHub</a>
         </div>
 
-        <div class="badge-row">
-          <span class="badge"><span class="dot"></span>npm</span>
-          <span class="badge"><span class="dot"></span>MIT License</span>
-          <span class="badge"><span class="dot"></span>Windows</span>
-          <span class="badge"><span class="dot"></span>Android</span>
-          <span class="badge"><span class="dot"></span>Open Source</span>
-        </div>
+        <p class="hero-trust">Free &amp; open source · MIT licensed · Windows · Android</p>
       </div>
     </section>
 
   </div>
 </div>
 
-<!-- FRAME 3: Normal content. Scrolling past this point moves the video away -->
-<section id="install" class="normal-section">
-  <!-- Your installation guides and rest of the page go here -->
-</section>
 
 
 <section class="section" id="install">
@@ -1436,37 +1461,6 @@
     });
   });
 
-  // Hero terminal sequence, replays when scrolled into view
-  const heroTerm = document.getElementById('hero-terminal');
-  let heroPlayed = false;
-  function playHeroSequence(){
-    const lines = heroTerm.querySelectorAll('.term-line');
-    const statuses = ['s1','s2','s3','s4'];
-    const ready = document.getElementById('term-ready');
-    lines.forEach(l=>l.classList.remove('shown'));
-    statuses.forEach(id=> document.getElementById(id).classList.remove('ok'));
-    ready.classList.remove('shown');
-    lines.forEach((line, i)=>{
-      setTimeout(()=>{
-        line.classList.add('shown');
-        if(i>0){
-          const status = document.getElementById(statuses[i-1]);
-          setTimeout(()=> status.classList.add('ok'), 380);
-        }
-      }, i*520);
-    });
-    setTimeout(()=> ready.classList.add('shown'), lines.length*520 + 300);
-  }
-  const heroIo = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting && !heroPlayed){
-        heroPlayed = true;
-        playHeroSequence();
-        setInterval(playHeroSequence, 6200);
-      }
-    });
-  }, {threshold:0.4});
-  heroIo.observe(heroTerm);
 </script>
 </body>
 </html>
