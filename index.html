@@ -161,7 +161,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/png">
-    
+
   <!-- =========================
        Icons
   ========================== -->
@@ -351,6 +351,82 @@
   .btn-primary:hover{box-shadow:0 0 0 4px var(--accent-glow);}
   .btn-secondary{border-color:var(--border); color:var(--text); background:var(--surface);}
   .btn-secondary:hover{border-color:var(--text-faint);}
+
+  /* The wrapper defines the total height of the scrolling effect. 
+   Increasing this height gives the user more time to scroll text before the video moves away. */
+.hero-sticky-wrapper {
+  position: relative;
+  height: 200vh; /* Keeps the container active across 2 full screen scrolls */
+  background-color: #0a0c10;
+}
+
+/* The video element locks onto the screen */
+.sticky-video-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sticky-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(10,12,16,0.85) 100%);
+}
+
+/* Container for text layers that sits completely on top of the video track */
+.scroll-layers-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2; /* Sits above the video */
+  pointer-events: none; /* Let clicks pass through to video if needed */
+}
+
+/* Each text block takes up a full screen height */
+.text-layer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers the content vertically over the video */
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  pointer-events: auto; /* Re-enable text selection and button clicks */
+  color: #ffffff;
+}
+
+/* Styling adjustment to make the text crisp over video frames */
+.frame-first h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.frame-second {
+  background: linear-gradient(to bottom, transparent 0%, #0a0c10 100%);
+}
+
+/* Normal sections that appear below the sticky zone */
+.normal-section {
+  position: relative;
+  background-color: #0a0c10;
+  padding: 80px 0;
+  z-index: 3; /* Completely covers the sticky track as it scrolls up */
+}
 
   /* ---------- Terminal (signature element) ---------- */
   .terminal{
@@ -736,40 +812,62 @@
   </nav>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <div class="eyebrow"><a href="https://www.npmjs.com/package/synkin" target="_blank">v0.1.2 is live on npm</a></div>
-    <h1>Preview your localhost<br>on Android. <span class="accent-text">Instantly.</span></h1>
-    <p class="hero-sub">Synkin is a lightweight CLI that bridges your local dev server to your Android device over USB. No IP addresses, no firewall rules, no Wi‑Fi setup — plug in your phone and run one command.</p>
-    <div class="hero-actions">
-      <a href="#install" class="btn btn-primary">Install Now</a>
-      <a href="https://www.github.com/owsam22/synkin-page" class="btn btn-secondary">View on Github</a>
-    </div>
-
-    <div class="terminal" id="hero-terminal">
-      <div class="terminal-bar">
-        <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
-        <span class="terminal-title">~/project — synkin</span>
-      </div>
-      <div class="terminal-body" id="term-body">
-        <div class="term-line" data-line="1"><span class="term-prompt">$</span><span>synkin run</span></div>
-        <div class="term-line" data-line="2"><span class="term-status" id="s1"><span class="check">○</span> Detecting Android device…</span></div>
-        <div class="term-line" data-line="3"><span class="term-status" id="s2"><span class="check">○</span> Detecting project…</span></div>
-        <div class="term-line" data-line="4"><span class="term-status" id="s3"><span class="check">○</span> Configuring ADB reverse…</span></div>
-        <div class="term-line" data-line="5"><span class="term-status" id="s4"><span class="check">○</span> Opening Chrome on device…</span></div>
-        <div class="term-ready" id="term-ready">Bridge ready — localhost:5173 is live on your phone 🚀</div>
-      </div>
-    </div>
-
-    <div class="badge-row">
-      <span class="badge"><span class="dot"></span>npm</span>
-      <span class="badge"><span class="dot"></span>MIT License</span>
-      <span class="badge"><span class="dot"></span>Windows</span>
-      <span class="badge"><span class="dot"></span>Android</span>
-      <span class="badge"><span class="dot"></span>Open Source</span>
-    </div>
+<!-- The main wrapper that controls the timeline of the scroll effect -->
+<div class="hero-sticky-wrapper">
+  
+  <!-- The video element that stays stuck during the hero section -->
+  <div class="sticky-video-container">
+    <video autoplay loop muted playsinline poster="synkin demo poster.png">
+      <source src="synkin demo ai generated.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
   </div>
+
+  <!-- The scrollable text layers that pass over the stuck video -->
+  <div class="scroll-layers-container">
+    
+    <!-- FRAME 1: Text directly over the video right when the page loads -->
+    <section class="text-layer frame-first">
+      <div class="wrap">
+        <div class="eyebrow">
+          <a href="https://www.npmjs.com/package/synkin" target="_blank">v0.2.2 is live on npm</a>
+        </div>
+        <h1>Preview your localhost<br>on Your Phone. <span class="accent-text">Instantly.</span></h1>
+        <p class="hero-sub">Scroll to see how it works.</p>
+      </div>
+    </section>
+
+    <!-- FRAME 2: The following details that scroll up over the video next -->
+    <section class="text-layer frame-second">
+      <div class="wrap">
+        <p class="hero-sub-detailed">
+          Synkin is a lightweight CLI that bridges your local dev server to your Android device over USB. 
+          No IP addresses, no firewall rules, no Wi‑Fi setup — plug in your phone and run one command.
+        </p>
+        
+        <div class="hero-actions">
+          <a href="#install" class="btn btn-primary">Install Now</a>
+          <a href="https://www.github.com/owsam22/synkin-page" class="btn btn-secondary">View on Github</a>
+        </div>
+
+        <div class="badge-row">
+          <span class="badge"><span class="dot"></span>npm</span>
+          <span class="badge"><span class="dot"></span>MIT License</span>
+          <span class="badge"><span class="dot"></span>Windows</span>
+          <span class="badge"><span class="dot"></span>Android</span>
+          <span class="badge"><span class="dot"></span>Open Source</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- FRAME 3: Normal content. Scrolling past this point moves the video away -->
+<section id="install" class="normal-section">
+  <!-- Your installation guides and rest of the page go here -->
 </section>
+
 
 <section class="section" id="install">
   <div class="wrap">
