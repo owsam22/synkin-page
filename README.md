@@ -11,7 +11,7 @@
 [![npm](https://img.shields.io/npm/v/synkin?color=39d98a&label=npm)](https://www.npmjs.com/package/synkin)
 [![License: MIT](https://img.shields.io/badge/license-MIT-39d98a.svg)](#license)
 [![Platform](https://img.shields.io/badge/platform-Windows-39d98a.svg)](#requirements)
-[![Android](https://img.shields.io/badge/800+-downloads-39d98a.svg)](https://npmjs.com/package/synkin)
+[![Downloads](https://img.shields.io/badge/800+-downloads-39d98a.svg)](https://npmjs.com/package/synkin)
 
 [Install](#installation) · [Usage](#usage) · [Website](https://owsam22.github.io/synkin-page) · [Report an issue](https://github.com/owsam22/synkin-page/issues)
 
