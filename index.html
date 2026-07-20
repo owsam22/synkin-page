@@ -804,22 +804,139 @@
   .contact-item{flex:1 1 100%; flex-direction:row; justify-content:flex-start; text-align:left; padding:16px 18px;}
 }
 
-  /* ---------- Footer ---------- */
-  footer{border-top:1px solid var(--border-soft); padding:56px 0 40px;}
-  .footer-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; margin-bottom:40px;}
-  .footer-brand p{color:var(--text-dim); font-size:14px; max-width:280px; margin-top:10px;}
-  .footer-links{display:flex; gap:56px; flex-wrap:wrap;}
-  .footer-col-title{font-family:var(--mono); font-size:12px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:14px;}
-  .footer-col a{display:block; color:var(--text-dim); font-size:14px; margin-bottom:10px; transition:color .2s;}
-  .footer-col a:hover{color:var(--text);}
-  .footer-bottom{
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-    padding-top:24px; border-top:1px solid var(--border-soft);
-    font-size:13px; color:var(--text-faint);
+/* footer  */
+.brand-footer {
+  background-color: #0d0f12; /* Deep dark base */
+  color: #a3b3c2;
+  padding: 0 24px 40px 24px;
+  font-family: system-ui, sans-serif;
+  border-radius: 40px 40px 0 0; /* Rounded container from image */
+  position: relative;
+  margin-top: 100px; /* Leave space for the floating logo */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 1. Centered Top Hub Styles */
+.footer-logo-hub {
+  text-align: center;
+  margin-top: -60px; /* Pulls logo up over the top border */
+  margin-bottom: 60px;
+}
+
+.footer-logo-hub .logo-wrapper {
+  display: inline-flex;
+  background-color: #12643b; /* Using your brand green from badges */
+  padding: 24px;
+  border-radius: 32px;
+  box-shadow: 0 10px 30px rgba(44, 166, 105, 0.2);
+  margin-bottom: 20px;
+}
+
+.footer-logo-hub .logo-wrapper img {
+  width: 90px;
+  height: 90px;
+}
+
+.footer-logo-hub .brand-title {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 0 0 8px 0;
+}
+
+.footer-logo-hub .brand-tagline {
+  color: #6c7d93;
+  font-size: 1.1rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* 2. Main Content Layout Grid */
+.footer-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-col-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.footer-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #7d8c9e;
+  max-width: 320px;
+}
+
+.footer-sidebar-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col a {
+  color: #a3b3c2;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-col a:hover {
+  color: #39d98a; /* Accent toggle */
+  transform: translateX(4px); /* Subtle shift interaction */
+}
+
+/* 3. Bottom Utility Bar */
+.footer-bottom-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  font-size: 0.85rem;
+  color: #5c6b7c;
+}
+
+.footer-bottom-strip a {
+  color: #a3b3c2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-bottom-strip a:hover {
+  color: #39d98a;
+}
+
+/* Responsive Handling */
+@media (max-width: 768px) {
+  .footer-content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
-
+  .footer-bottom-strip {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+ 
   code, pre{font-family:var(--mono);}
-
+ 
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important; transition:none !important;}
     .reveal, .reveal-stagger > *{opacity:1; transform:none;}
@@ -1383,31 +1500,47 @@
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo"><span class="logo-mark"></span>Synkin</div>
-        <p>Preview your localhost on Android over USB.</p>
+<footer class="brand-footer">
+  <!-- Centered Top Brand Logo Grid -->
+  <div class="footer-logo-hub">
+    <div class="logo-wrapper">
+      <img src="synkin-icon-white.svg" alt="Synkin Icon">
+    </div>
+    <h2 class="brand-title">Synkin</h2>
+    <p class="brand-tagline">Instantly preview your localhost on Android over USB.</p>
+  </div>
+
+  <div class="wrap footer-content-grid">
+    <!-- Left Column: Quick Descriptions -->
+    <div class="footer-sidebar-left">
+      <div class="footer-col-title">Overview</div>
+      <p class="footer-desc">A zero-config open-source CLI bridging local environments directly to physical devices without network tweaks.</p>
+    </div>
+
+    <!-- Right Column: Navigation Links -->
+    <div class="footer-sidebar-right">
+      <div class="footer-col">
+        <div class="footer-col-title">Project</div>
+        <a href="https://github.com/owsam22/synkin-page" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.npmjs.com/package/synkin" target="_blank" rel="noopener noreferrer">npm</a>
+        <a href="https://owsam22.github.io/synkin" target="_blank" rel="noopener noreferrer">Documentation</a>
       </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <div class="footer-col-title">Project</div>
-          <a href="https://github.com/owsam22/synkin-page" target="_blank">GitHub</a>
-          <a href="https://www.npmjs.com/package/synkin" target="_blank">npm</a>
-          <a href="https://owsam22.github.io/synkin" target="_blank">Documentation</a>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Community</div>
-          <a href="https://github.com/owsam22/synkin-page/blob/main/LICENSE" target="_blank">MIT License</a>
-          <a href="https://github.com/owsam22/synkin-page/issues" target="_blank">Report an Issue</a>
-          <a href="https://github.com/owsam22" target="_blank">meet the developers</a>
-        </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Community</div>
+        <a href="https://github.com/owsam22/synkin-page/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
+        <a href="https://github.com/owsam22/synkin-page/issues" target="_blank" rel="noopener noreferrer">Report an Issue</a>
+        <a href="https://github.com/owsam22" target="_blank" rel="noopener noreferrer">Meet the Developer</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 <a href="https://npmjs.com/package/synkin" target="_blank">Synkin</a>.<a href="https://github.com/owsam22/synkin-page/blob/main/LICENSE" target="_blank"> MIT License</a>.</span>
-      <span>Made by <a href="https://samarpan-portfolio.netlify.app/" target="_blank">Samarpan (owsam22)</a></span>
+  </div>
+
+  <!-- Bottom Metadata Row -->
+  <div class="wrap footer-bottom-strip">
+    <div class="copyright-info">
+      <span>&copy; 2026 Synkin. All rights reserved.</span>
+    </div>
+    <div class="credit-info">
+      <span>Built by <a href="https://samarpan-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer">Samarpan (owsam22)</a></span>
     </div>
   </div>
 </footer>
