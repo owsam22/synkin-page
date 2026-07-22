@@ -13,7 +13,7 @@
 [![Platform](https://img.shields.io/badge/platform-Windows-39d98a.svg)](#requirements)
 [![Downloads](https://img.shields.io/badge/800+-downloads-39d98a.svg)](https://npmjs.com/package/synkin)
 
-[Install](#installation) · [Usage](#usage) · [Website](https://owsam22.github.io/synkin-page) · [Report an issue](https://github.com/owsam22/synkin-page/issues)
+[Install](#installation) · [Usage](#usage) · [Vist our Website](https://owsam22.github.io/synkin-page) · [Report an issue](https://github.com/owsam22/synkin-page/issues)
 
 </div>
 
