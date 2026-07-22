@@ -759,6 +759,36 @@
   .release-a ul{list-style:none;}
   .release-a li{color:var(--text-dim); font-size:14px; padding:5px 0; padding-left:18px; position:relative;}
   .release-a li::before{content:'→'; position:absolute; left:0; color:var(--accent);}
+  .release-update {
+  text-align: center;
+  max-width: 420px;
+  margin: 20px auto;
+  padding: 16px;
+  border: 2px solid var(--border-soft, #12643b);
+  border-radius: 8px;
+  background: var(--bg-soft, #111);
+}
+
+.release-update p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.code-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
   @media (max-width:520px){
     .release-q{flex-wrap:wrap;}
     .release-meta{width:100%; order:3;}
@@ -989,6 +1019,7 @@
       <a href="#requirements">Requirements</a>
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
+      <a href="#released">Released Note</a>
       <a href="#faq">FAQ</a>
     </div>
     <a class="nav-cta" href="https://npmjs.com/package/synkin"><strong style="color:#12cb44;">950+ </strong>downloads</a>
@@ -1374,7 +1405,7 @@
   </div>
 </section>
 
-<section class="section section-alt" id="releases">
+<section class="section section-alt" id="released">
   <div class="wrap">
     <div class="section-head center reveal">
       <span class="kicker">Release Notes</span>
@@ -1391,7 +1422,7 @@
         <div class="release-date">Released 22 Jul 2026</div>
       </div>
       <ul class="release-latest-notes">
-        <li>Machine learning project detection: TensorFlow, PyTorch</li>
+        <li>version function updated</li>
         <li>Documentation site and release notes launched</li>
         <li>Branding and footer refresh across the site</li>
       </ul>
@@ -1401,14 +1432,14 @@
       <div class="release-item">
         <button class="release-q">
           <span class="release-version-tag">v0.2.2</span>
-          <span class="release-meta">17 Jul 2026</span>
+          <span class="release-meta">20 Jul 2026</span>
           <span class="plus">+</span>
         </button>
         <div class="release-a">
           <ul>
+            <li>Machine learning project detection: TensorFlow, PyTorch</li>
             <li>Improved diagnostics for USB debugging issues</li>
             <li>Faster device discovery on reconnect</li>
-            <li>Minor CLI output fixes</li>
           </ul>
         </div>
       </div>
@@ -1416,12 +1447,12 @@
       <div class="release-item">
         <button class="release-q">
           <span class="release-version-tag">v0.2.1</span>
-          <span class="release-meta">17 Jul 2026</span>
+          <span class="release-meta">19 Jul 2026</span>
           <span class="plus">+</span>
         </button>
         <div class="release-a">
-          <ul>
-            <li>Automatic CORS handling for backend requests</li>
+          <ul>            
+            <li>Database awareness: MongoDB, PostgreSQL, MySQL, SQLite</li>
             <li>Clearer error messages when ADB isn't found</li>
             <li>Minor fixes to port forwarding cleanup on exit</li>
           </ul>
@@ -1436,7 +1467,7 @@
         </button>
         <div class="release-a">
           <ul>
-            <li>Database awareness: MongoDB, PostgreSQL, MySQL, SQLite</li>
+            <li>Automatic CORS handling for backend requests</li>
             <li>Added Next.js and Angular to project detection</li>
             <li>Rewritten port discovery for more reliable matches</li>
           </ul>
