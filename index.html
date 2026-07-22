@@ -720,14 +720,49 @@
   .doc-link .arrow{transition:transform .2s;}
   .doc-card:hover .doc-link .arrow{transform:translateX(3px);}
 
-  /* ---------- Roadmap ---------- */
-  .roadmap{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
-  @media (max-width:820px){ .roadmap{grid-template-columns:1fr;} }
-  .rm-card{border:1px solid var(--border); border-radius:var(--radius); padding:24px; background:var(--surface); position:relative;}
-  .rm-version{font-family:var(--mono); color:var(--accent); font-size:13px; margin-bottom:14px; display:block;}
-  .rm-card ul{list-style:none;}
-  .rm-card li{color:var(--text-dim); font-size:14px; padding:6px 0; padding-left:16px; position:relative;}
-  .rm-card li::before{content:'—'; position:absolute; left:0; color:var(--text-faint);}
+  /* ---------- Release Notes ---------- */
+  .release-latest{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    border:1px solid var(--accent-dim); border-radius:var(--radius);
+    padding:22px 26px; margin-bottom:32px;
+    background:linear-gradient(120deg, var(--accent-glow), transparent 60%), var(--surface);
+  }
+  .release-latest-info{display:flex; align-items:center; gap:12px;}
+  .release-badge{
+    font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.05em;
+    color:#04140c; background:var(--accent); padding:4px 10px; border-radius:100px; font-weight:600;
+  }
+  .release-version{font-family:var(--display); font-weight:600; font-size:19px;}
+  .release-downloads{font-family:var(--mono); font-size:13px; color:var(--text-dim);}
+  .release-period{color:var(--text-faint);}
+
+  .release-list{max-width:740px; margin:0 auto; border-top:1px solid var(--border-soft);}
+  .release-item{border-bottom:1px solid var(--border-soft);}
+  .release-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:18px 4px; display:flex; align-items:center; gap:16px;
+  }
+  .release-version-tag{
+    font-family:var(--mono); font-weight:600; font-size:14.5px; color:var(--text);
+    min-width:64px; flex-shrink:0;
+  }
+  .release-meta{
+    font-family:var(--mono); font-size:12.5px; color:var(--text-faint); flex:1;
+  }
+  .release-q .plus{color:var(--accent); font-family:var(--mono); font-size:18px; transition:transform .25s ease; flex-shrink:0;}
+  .release-item.open .plus{transform:rotate(45deg);}
+  .release-a{
+    max-height:0; overflow:hidden; transition:max-height .3s ease, padding .3s ease;
+    padding:0 4px;
+  }
+  .release-item.open .release-a{max-height:220px; padding-bottom:18px;}
+  .release-a ul{list-style:none;}
+  .release-a li{color:var(--text-dim); font-size:14px; padding:5px 0; padding-left:18px; position:relative;}
+  .release-a li::before{content:'→'; position:absolute; left:0; color:var(--accent);}
+  @media (max-width:520px){
+    .release-q{flex-wrap:wrap;}
+    .release-meta{width:100%; order:3;}
+  }
 
   /* ---------- FAQ ---------- */
   .faq-list{max-width:740px; margin:0 auto; border-top:1px solid var(--border-soft);}
@@ -949,14 +984,14 @@
 
 <header>
   <nav>
-    <div class="logo"><img src="synkin-icon-white.svg" alt="synkin logo">Synkin</div> 
+    <div class="logo"><img src="synkin-icon-white.svg" alt="synkin logo image">Synkin</div> 
     <div class="nav-links">
       <a href="#requirements">Requirements</a>
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a class="nav-cta" href="https://npmjs.com/package/synkin"><strong style="color:#12cb44;">900+ </strong>downloads</a>
+    <a class="nav-cta" href="https://npmjs.com/package/synkin"><strong style="color:#12cb44;">950+ </strong>downloads</a>
   </nav>
 </header>
 
@@ -1339,37 +1374,124 @@
   </div>
 </section>
 
-<section class="section section-alt" id="roadmap">
+<section class="section section-alt" id="releases">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="kicker">Roadmap</span>
-      <h2>What's next for Synkin</h2>
+      <span class="kicker">Release Notes</span>
+      <h2>Every version, one place</h2>
+      <p class="section-desc">The current release plus full version history — click any version to see what changed.</p>
     </div>
-    <div class="roadmap reveal-stagger">
-      <div class="rm-card">
-        <span class="rm-version">v0.2</span>
-        <ul>
-          <li>More framework detection</li>
-          <li>Better diagnostics</li>
-          <li>Better project detection</li>
-        </ul>
+
+    <div class="release-latest reveal">
+      <div class="release-latest-top">
+        <div class="release-latest-info">
+          <span class="release-badge">Latest</span>
+          <span class="release-version">v0.2.3</span>
+        </div>
+        <div class="release-date">Released 22 Jul 2026</div>
       </div>
-      <div class="rm-card">
-        <span class="rm-version">v0.3</span>
-        <ul>
-          <li>Automatic update notifications</li>
-          <li>Better logging</li>
-          <li>Faster scanning</li>
-        </ul>
+      <ul class="release-latest-notes">
+        <li>Machine learning project detection: TensorFlow, PyTorch</li>
+        <li>Documentation site and release notes launched</li>
+        <li>Branding and footer refresh across the site</li>
+      </ul>
+    </div>
+
+    <div class="release-list reveal">
+      <div class="release-item">
+        <button class="release-q">
+          <span class="release-version-tag">v0.2.2</span>
+          <span class="release-meta">17 Jul 2026</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="release-a">
+          <ul>
+            <li>Improved diagnostics for USB debugging issues</li>
+            <li>Faster device discovery on reconnect</li>
+            <li>Minor CLI output fixes</li>
+          </ul>
+        </div>
       </div>
-      <div class="rm-card">
-        <span class="rm-version">v1.0</span>
-        <ul>
-          <li>Stable release</li>
-          <li>More frameworks</li>
-          <li>Better developer experience</li>
-        </ul>
+
+      <div class="release-item">
+        <button class="release-q">
+          <span class="release-version-tag">v0.2.1</span>
+          <span class="release-meta">17 Jul 2026</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="release-a">
+          <ul>
+            <li>Automatic CORS handling for backend requests</li>
+            <li>Clearer error messages when ADB isn't found</li>
+            <li>Minor fixes to port forwarding cleanup on exit</li>
+          </ul>
+        </div>
       </div>
+
+      <div class="release-item">
+        <button class="release-q">
+          <span class="release-version-tag">v0.2.0</span>
+          <span class="release-meta">17 Jul 2026</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="release-a">
+          <ul>
+            <li>Database awareness: MongoDB, PostgreSQL, MySQL, SQLite</li>
+            <li>Added Next.js and Angular to project detection</li>
+            <li>Rewritten port discovery for more reliable matches</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="release-item">
+        <button class="release-q">
+          <span class="release-version-tag">v0.1.2</span>
+          <span class="release-meta">16 Jul 2026</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="release-a">
+          <ul>
+            <li>Backend support added: Express, NestJS, FastAPI, Flask, Django</li>
+            <li>ADB Reverse now configures automatically on connect</li>
+            <li>Fixed Chrome not launching on some Android versions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="release-item">
+        <button class="release-q">
+          <span class="release-version-tag">v0.1.1</span>
+          <span class="release-meta">15 Jul 2026</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="release-a">
+          <ul>
+            <li>Added support for static HTML projects</li>
+            <li>Cleaner shutdown when the cable is disconnected mid-session</li>
+            <li>Small CLI output formatting fixes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="release-item">
+        <button class="release-q">
+          <span class="release-version-tag">v0.1.0</span>
+          <span class="release-meta">14 Jul 2026</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="release-a">
+          <ul>
+            <li>First public release</li>
+            <li>USB bridge, ADB Reverse, and automatic Chrome launch</li>
+            <li>React and Vite project detection</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="release-update reveal">
+      <p>Running an older version? Update to <strong style="color:var(--text);">Latest version</strong> now:</p>
+      <div class="code-row"><code>npm update -g synkin</code><button class="copy-btn" data-copy="npm update -g synkin"></button></div>
     </div>
   </div>
 </section>
@@ -1590,6 +1712,15 @@
     item.querySelector('.faq-q').addEventListener('click', ()=>{
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(o=>o.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Release notes accordion
+  document.querySelectorAll('.release-item').forEach(item=>{
+    item.querySelector('.release-q').addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.release-item.open').forEach(o=>o.classList.remove('open'));
       if(!isOpen) item.classList.add('open');
     });
   });
