@@ -2,9 +2,9 @@
 
 # Synkin — Test Localhost on Android over USB
 
-<a href="https://npmjs.com/package/synkin">
-<img src="./og-image.png" height="150px" width="150px">
-</a>
+
+<img src="./public/og-image.png" height="150px" width="150px">
+
 
 **Instantly preview your local web apps on Android — over USB.**
 
@@ -179,6 +179,57 @@ synkin run
 That's it — your project is live on-device.
 
 ---
+## Notes for Vite users
+
+Your Vite server must be reachable through ADB Reverse. If it's only listening on `127.0.0.1`, Android Chrome can't reach it through the bridge — enable `server.host` in `vite.config.ts`:
+
+```ts
+server: {
+  host: true,
+},
+```
+
+---
+
+## Troubleshooting
+
+**Device not detected**
+
+Check the connection:
+
+```bash
+adb devices
+```
+
+Make sure these are enabled on the device:
+- USB debugging
+- File transfer mode
+
+**Chrome doesn't open**
+
+Confirm Google Chrome is installed on the Android device.
+
+**Project not found**
+
+Run Synkin from inside your project folder:
+
+```bash
+cd my-project
+synkin run
+```
+
+**Backend requests fail**
+
+Make sure your backend server is running *before* starting Synkin.
+
+**if chrome say -site can't be reached**
+
+Make sure to check vite.config.js has this:
+`server{
+  host: true
+},`
+
+---
 
 ## Supported frameworks
 
@@ -237,51 +288,6 @@ Then run:
 ```bash
 synkin run
 ```
-
----
-
-## Notes for Vite users
-
-Your Vite server must be reachable through ADB Reverse. If it's only listening on `127.0.0.1`, Android Chrome can't reach it through the bridge — enable `server.host` in `vite.config.ts`:
-
-```ts
-server: {
-  host: true,
-},
-```
-
----
-
-## Troubleshooting
-
-**Device not detected**
-
-Check the connection:
-
-```bash
-adb devices
-```
-
-Make sure these are enabled on the device:
-- USB debugging
-- File transfer mode
-
-**Chrome doesn't open**
-
-Confirm Google Chrome is installed on the Android device.
-
-**Project not found**
-
-Run Synkin from inside your project folder:
-
-```bash
-cd my-project
-synkin run
-```
-
-**Backend requests fail**
-
-Make sure your backend server is running *before* starting Synkin.
 
 ---
 ## Summary 
