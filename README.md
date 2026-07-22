@@ -3,7 +3,7 @@
 # Synkin — Test Localhost on Android over USB
 
 
-<img src="./public/og-image.png" height="150px" width="150px">
+<img src="./og-image.png" height="150px" width="150px">
 
 
 **Instantly preview your local web apps on Android — over USB.**
