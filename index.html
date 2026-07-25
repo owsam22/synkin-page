@@ -810,14 +810,107 @@
   }
   .faq-item.open .faq-a{max-height:200px; padding-bottom:20px;}
 
-  /* ---------- Download CTA ---------- */
-  .cta-box{
-    text-align:center; border:1px solid var(--border); border-radius:16px;
-    padding:64px 32px; background:radial-gradient(ellipse at 50% 0%, var(--accent-glow), transparent 60%), var(--surface);
+  /* ---------- Feedback CTA & Form ---------- */
+.cta-box {
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(32px, 5vw, 56px) clamp(20px, 4vw, 32px);
+  background: radial-gradient(ellipse at 50% 0%, var(--accent-glow), transparent 60%), var(--surface);
+}
+
+.cta-box h2 {
+  margin-bottom: 10px;
+}
+
+.cta-box p {
+  color: var(--text-dim);
+  margin-bottom: 32px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feedback-form {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.feedback-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feedback-form label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text, #ffffff);
+}
+
+/* Base Input Styles (Inputs, Select, Textarea) */
+.feedback-form input[type="email"],
+.feedback-form select,
+.feedback-form textarea {
+  width: 100%;
+  background: var(--surface-alt, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border);
+  border-radius: var(--radius, 10px);
+  padding: 12px 14px;
+  color: var(--text, #ffffff);
+  font-size: 14.5px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Dropdown Option Styling */
+.feedback-form select option {
+  background: var(--surface, #18181b);
+  color: var(--text, #ffffff);
+}
+
+/* Custom Textarea Adjustments */
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Clean Focus States */
+.feedback-form input:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus {
+  border-color: var(--accent, #3b82f6);
+  box-shadow: 0 0 0 3px var(--accent-glow, rgba(59, 130, 246, 0.2));
+}
+
+.feedback-form .submit-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.feedback-form .form-note {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-faint, #888);
+  margin-top: 4px;
+}
+
+/* Responsive Scaling for Small Screens */
+@media (max-width: 480px) {
+  .cta-box {
+    padding: 28px 16px;
   }
-  .cta-box h2{margin-bottom:10px;}
-  .cta-box p{color:var(--text-dim); margin-bottom:28px;}
-  .cta-box .code-row{max-width:340px; margin:0 auto 24px;}
+}
 
   /* ---------- Contact ---------- */
 .contact-links{
@@ -1018,9 +1111,9 @@
     <div class="nav-links">
       <a href="#requirements">Requirements</a>
       <a href="#features">Features</a>
-      <a href="#how">How it works</a>
       <a href="#released">Released Note</a>
       <a href="#faq">FAQ</a>
+      <a href="#feedback">Have Feedback</a>
     </div>
     <a class="nav-cta" href="https://npmjs.com/package/synkin"><strong style="color:#12cb44;">1200+ </strong>downloads</a>
   </nav>
@@ -1596,13 +1689,52 @@
   </div>
 </section>
 
-<section class="section section-alt" id="download">
+<section class="section section-alt" id="feedback">
   <div class="wrap">
     <div class="cta-box reveal">
-      <h2>Start previewing on device</h2>
-      <p>One install, and your phone is a real testing device again.</p>
-      <div class="code-row"><code>npm install -g synkin</code><button class="copy-btn" data-copy="npm install -g synkin"></button></div>
-      <a href="https://github.com/owsam22/synkin-page" class="btn btn-primary" target="_blank">Install now</a>
+      <h2>Help us improve Synkin</h2>
+      <p>Have a suggestion, found a bug, or need to report abuse? Drop us a message below.</p>
+
+      <form class="feedback-form" action="#" method="POST">
+        <!-- Category Selector -->
+        <div class="form-group">
+          <label for="feedback-category">Topic</label>
+          <select id="feedback-category" name="category" required>
+            <option value="" disabled selected>Select a topic...</option>
+            <option value="suggestion">💡 Feature Suggestion</option>
+            <option value="bug">🐛 Bug Report</option>
+            <option value="abuse">🚨 Report Abuse / Security</option>
+            <option value="other">💬 General Feedback</option>
+          </select>
+        </div>
+
+        <!-- Contact Email -->
+        <div class="form-group">
+          <label for="feedback-email">Your Email</label>
+          <input 
+            type="email" 
+            id="feedback-email" 
+            name="email" 
+            placeholder="name@domain.com" 
+            required 
+          />
+        </div>
+
+        <!-- Message Details -->
+        <div class="form-group">
+          <label for="feedback-message">Message</label>
+          <textarea 
+            id="feedback-message" 
+            name="message" 
+            rows="4" 
+            placeholder="Describe your feedback, report, or issue in detail..." 
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary submit-btn">Submit Message</button>
+        <span class="form-note">We review all submissions within a day.</span>
+      </form>
     </div>
   </div>
 </section>
