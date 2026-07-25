@@ -1,5 +1,4 @@
 User-agent: *
-
 Allow: /
 
 Sitemap: https://owsam22.github.io/synkin-page/sitemap.xml
