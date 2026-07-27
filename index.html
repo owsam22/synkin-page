@@ -503,9 +503,9 @@
   .section{padding:104px 0;}
   .section-alt{background:var(--bg-alt); border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft);}
   .kicker{
-    font-family:var(--mono); font-size:12.5px; color:var(--accent);
+    font-family:var(--mono); font-size:15.5px; color:var(--accent);
     letter-spacing:0.06em; text-transform:uppercase; margin-bottom:14px;
-    display:block;
+    display:block;font-weight: 900;
   }
   .section-head{max-width:600px; margin-bottom:56px;}
   .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
@@ -696,6 +696,89 @@
   .code-block pre{padding:14px 16px; overflow-x:auto;}
   .code-block code{font-family:var(--mono); font-size:13px; color:var(--text); line-height:1.6;}
 
+  /*why synkin text*/
+  .section-head {
+    max-width: 100%;
+}
+
+.section-description {
+    margin-top: 18px;
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 1.05rem;
+    max-width: 100%;
+}
+
+.section-description strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.section-description code {
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.08);
+    color: var(--accent);
+    font-family: monospace;
+    font-size: .95em;
+}
+
+.compare{
+    margin-top:48px;
+}
+
+.seo-block{
+    margin-top:60px;
+    padding:28px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.02);
+}
+
+.seo-block h3{
+    margin-bottom:18px;
+    font-size:1.5rem;
+}
+
+.seo-block p{
+    line-height:1.9;
+    color:var(--muted);
+}
+
+.seo-block strong{
+    color:var(--text);
+}
+
+@media (max-width:768px){
+
+    .section-description{
+        font-size:1rem;
+        line-height:1.8;
+    }
+
+    .seo-block{
+        padding:22px;
+    }
+
+}
+/*DEMO css*/
+.demo-container {
+    margin-top: 42px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.08);
+    background: #0b0b0b;
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+.demo-gif {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    user-select: none;
+}
   /* ---------- Documentation ---------- */
   .doc-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
   @media (max-width:900px){ .doc-grid{grid-template-columns:repeat(2,1fr);} }
@@ -1158,7 +1241,7 @@
 
         <div class="hero-actions">
           <a href="#install" class="btn btn-primary">Install Now</a>
-          <a href="https://www.github.com/owsam22/synkin-page" class="btn btn-secondary">View on GitHub</a>
+          <a href="#demo" class="btn btn-secondary">View Demo</a>
         </div>
 
         <p class="hero-trust">Free &amp; open source · MIT licensed · Windows · Android</p>
@@ -1335,35 +1418,112 @@
 
 <section class="section" id="why">
   <div class="wrap">
-    <div class="section-head center reveal">
+
+    <div class="section-head reveal">
       <span class="kicker">Why Synkin</span>
-      <h2>Skip everything you used to do by hand</h2>
+
+      <h2>
+        Test localhost websites on Android over USB without changing your development workflow
+      </h2>
+
+      <p class="section-description">
+        Testing a <strong>localhost website on Android</strong> usually involves several manual steps before you can even see your application on a real device.
+        Most developers have to find their <strong>local IP address</strong>, connect both devices to the same <strong>Wi-Fi network</strong>,
+        configure firewall rules, update backend API URLs, modify CORS settings, add new Google OAuth origins,
+        or use tunneling services like <strong>ngrok</strong> or <strong>Cloudflare Tunnel</strong>.
+      </p>
+
+      <p class="section-description">
+        <strong>Synkin</strong> removes all of those steps by using
+        <strong>ADB Reverse</strong> over USB.
+        Your Android browser opens
+        <code>http://localhost:5173</code>
+        instead of
+        <code>http://192.168.x.x:5173</code>,
+        meaning your application behaves exactly like it does on your desktop.
+      </p>
+
+      <p class="section-description">
+        Whether you're building a <strong>React</strong>,
+        <strong>Vite</strong>,
+        <strong>Next.js</strong>,
+        <strong>Express</strong>,
+        <strong>FastAPI</strong>,
+        <strong>Flask</strong>,
+        <strong>Django</strong>,
+        <strong>Laravel</strong>,
+        or even a simple HTML project,
+        Synkin lets you test your frontend and backend APIs on a real Android device without changing your existing development setup.
+      </p>
     </div>
+
     <div class="compare reveal-stagger">
+
       <div class="compare-card">
-        <div class="compare-title">Before Synkin</div>
+
+        <div class="compare-title">
+          Before Synkin
+        </div>
+
         <ul>
           <li><span class="mark no">✕</span>Find your local IP address</li>
-          <li><span class="mark no">✕</span>Disable your firewall</li>
-          <li><span class="mark no">✕</span>Configure the LAN</li>
-          <li><span class="mark no">✕</span>Change backend URLs</li>
-          <li><span class="mark no">✕</span>Worry about CORS</li>
-          <li><span class="mark no">✕</span>Remember which ports are open</li>
+          <li><span class="mark no">✕</span>Connect your phone and computer to the same Wi-Fi</li>
+          <li><span class="mark no">✕</span>Configure firewall rules</li>
+          <li><span class="mark no">✕</span>Change backend API URLs</li>
+          <li><span class="mark no">✕</span>Fix CORS policy issues</li>
+          <li><span class="mark no">✕</span>Add Google OAuth localhost origins</li>
+          <li><span class="mark no">✕</span>Use ngrok or port forwarding</li>
           <li><span class="mark no">✕</span>Reconnect after every restart</li>
         </ul>
+
       </div>
+
       <div class="compare-card good">
-        <div class="compare-title">With Synkin</div>
+
+        <div class="compare-title">
+          With Synkin
+        </div>
+
         <ul>
-          <li><span class="mark yes">✓</span>USB only</li>
-          <li><span class="mark yes">✓</span>localhost just works</li>
-          <li><span class="mark yes">✓</span>Automatic device discovery</li>
-          <li><span class="mark yes">✓</span>Chrome launches on its own</li>
-          <li><span class="mark yes">✓</span>Backend requests work out of the box</li>
+          <li><span class="mark yes">✓</span>USB connection only</li>
+          <li><span class="mark yes">✓</span>No local IP required</li>
+          <li><span class="mark yes">✓</span>No Wi-Fi required</li>
+          <li><span class="mark yes">✓</span>Automatic ADB Reverse</li>
+          <li><span class="mark yes">✓</span>Automatic Chrome launch</li>
+          <li><span class="mark yes">✓</span>Backend APIs work normally</li>
+          <li><span class="mark yes">✓</span>Real localhost support</li>
           <li><span class="mark yes">✓</span>Zero configuration</li>
         </ul>
+
       </div>
+
     </div>
+
+    <div class="seo-block reveal">
+
+      <h3>
+        Common problems Synkin solves
+      </h3>
+
+      <p>
+        If you've searched for
+        <strong>localhost on Android</strong>,
+        <strong>test localhost on phone</strong>,
+        <strong>React localhost Android</strong>,
+        <strong>Vite localhost Android</strong>,
+        <strong>Next.js localhost Android</strong>,
+        <strong>Express localhost Android</strong>,
+        <strong>FastAPI localhost Android</strong>,
+        <strong>backend localhost Android</strong>,
+        <strong>ADB Reverse localhost</strong>,
+        <strong>USB localhost testing</strong>,
+        or
+        <strong>test website on a real Android device</strong>,
+        Synkin is built specifically to solve those problems while keeping your localhost environment unchanged.
+      </p>
+
+    </div>
+
   </div>
 </section>
 
@@ -1399,28 +1559,31 @@
   </div>
 </section>
 
-<section class="section" id="output">
+<section class="section" id="demo">
   <div class="wrap">
+
     <div class="section-head center reveal">
-      <span class="kicker">Example output</span>
-      <h2>What you'll actually see</h2>
+      <span class="kicker">Live Demo</span>
+      <h2>See Synkin in action</h2>
+
+      <p class="section-description">
+        Watch how Synkin automatically detects your project, connects your Android device,
+        configures ADB Reverse, forwards localhost ports, and opens your website in Chrome —
+        all with a single command.
+      </p>
     </div>
-    <div class="terminal output-term reveal">
-      <div class="terminal-bar">
-        <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
-        <span class="terminal-title">synkin</span>
-      </div>
-      <div class="terminal-body">
-        <div class="out-line"><span class="check">✓</span>ADB found</div>
-        <div class="out-line"><span class="check">✓</span>Android connected</div>
-        <div class="out-line"><span class="check">✓</span>React detected</div>
-        <div class="out-line"><span class="check">✓</span>Backend detected</div>
-        <div class="out-line"><span class="check">✓</span>Port 5173 forwarded</div>
-        <div class="out-line"><span class="check">✓</span>Port 8000 forwarded</div>
-        <div class="out-line"><span class="check">✓</span>Opening Chrome</div>
-        <div class="out-ready">Bridge ready 🚀</div>
-      </div>
+
+    <div class="demo-container reveal">
+
+      <img
+        src="./synkin-demo.gif"
+        alt="Synkin demo showing localhost website automatically opening on Android over USB using ADB Reverse"
+        class="demo-gif"
+        loading="lazy"
+      >
+
     </div>
+
   </div>
 </section>
 
