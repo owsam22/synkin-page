@@ -31,7 +31,17 @@ npm install -g synkin
 synkin run
 ```
 
-For a visual walkthrough, check out the **[website](https://owsam22.github.io/synkin-page)**.
+## 🎬 Demo
+
+<p align="center">
+  <img
+    src="./synkin-demo.gif"
+    alt="Synkin demo showing localhost opening on Android over USB"
+    width="900"
+  />
+</p>
+
+>For a visual walkthrough, check out the **[website](https://owsam22.github.io/synkin-page)**.
 
 ---
 
