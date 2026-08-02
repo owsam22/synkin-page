@@ -318,6 +318,55 @@
   }
   .badge .dot{width:6px; height:6px; border-radius:50%; background:var(--accent);}
 
+  /* ---------- Hamburger ---------- */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:34px; height:34px;
+  background:none; border:1px solid var(--border);
+  border-radius:7px; cursor:pointer;
+  padding:0 8px;
+  z-index:60;
+}
+.hamburger span{
+  display:block; width:100%; height:2px;
+  background:var(--text); border-radius:2px;
+  transition:transform .25s ease, opacity .25s ease;
+}
+.hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2){ opacity:0; }
+.hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+
+@media (max-width:760px){
+  .hamburger{ display:flex; }
+  .desktop-only-cta{ display:none; }
+
+  .nav-links{
+    position:fixed;
+    top:64px; left:0; right:0;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    background:rgba(10,11,13,0.98);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-soft);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+    z-index:55;
+  }
+  .nav-links.open{ max-height:400px; }
+  .nav-links a{
+    width:100%;
+    padding:16px 32px;
+    border-bottom:1px solid var(--border-soft);
+  }
+}
+
   /* ---------- Hero ---------- */
   .hero{padding:96px 0 80px; text-align:center;}
   .eyebrow{
@@ -1190,15 +1239,23 @@
 
 <header>
   <nav>
-    <div class="logo"><img src="synkin-icon-white.svg" alt="synkin logo image">Synkin</div> 
-    <div class="nav-links">
+    <div class="logo"><img src="synkin-icon-white.svg" alt="synkin logo image">Synkin</div>
+
+    <div class="nav-links" id="navLinks">
       <a href="#requirements">Requirements</a>
       <a href="#features">Features</a>
       <a href="#released">Released Note</a>
       <a href="#faq">FAQ</a>
       <a href="#feedback">Have Feedback</a>
     </div>
-    <a class="nav-cta" href="https://npmjs.com/package/synkin"><strong style="color:#12cb44;">1600+ </strong>downloads</a>
+
+    <a class="nav-cta desktop-only-cta" href="https://npmjs.com/package/synkin"><strong style="color:#12cb44;">1600+ </strong>downloads</a>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 </header>
 
@@ -2066,6 +2123,25 @@
       if(!isOpen) item.classList.add('open');
     });
   });
+
+// Hamburger menu toggle
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navLinks = document.getElementById('navLinks');
+
+hamburgerBtn.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  hamburgerBtn.classList.toggle('open', isOpen);
+  hamburgerBtn.setAttribute('aria-expanded', isOpen);
+});
+
+// Close menu when a link is clicked
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    hamburgerBtn.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  });
+});
 
 </script>
 </body>
