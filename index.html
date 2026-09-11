@@ -185,7 +185,7 @@
 
     "operatingSystem":"Windows",
 
-    "softwareVersion":"0.2.7",
+    "softwareVersion":"0.3.1",
 
     "url":"https://synkin.owsam22.com/",
 
@@ -1280,7 +1280,7 @@
     <section class="text-layer frame-first">
       <div class="wrap">
         <div class="eyebrow">
-          <a href="https://www.npmjs.com/package/synkin" target="_blank">v0.2.7 is live on npm</a>
+          <a href="https://www.npmjs.com/package/synkin" target="_blank">v0.3.1 is live on npm</a>
         </div>
         <h1>Preview your localhost<br>on Your Phone. <span class="accent-text">Instantly.</span></h1>
         <p class="hero-sub">Watch it happen — plug in, run one command, and your site is live on your Android device.</p>
@@ -1721,139 +1721,153 @@
   </div>
 </section>
 
-<section class="section section-alt" id="released">
-  <div class="wrap">
-    <div class="section-head center reveal">
-      <span class="kicker">Release Notes</span>
-      <h2>Every version, one place</h2>
-      <p class="section-desc">The current release plus full version history — click any version to see what changed.</p>
-    </div>
-
-    <div class="release-latest reveal">
-      <div class="release-latest-top">
-        <div class="release-latest-info">
-          <span class="release-badge">Latest</span>
-          <span class="release-version">v0.2.7</span>
-        </div>
-        <div class="release-date">Released 25 Jul 2026</div>
-      </div>
-      <ul class="release-latest-notes">
-        <li>backend port discovery updated</li>
-        <li>minor bug fixes and performance improvements</li>
-      </ul>
-    </div>
-
-    <div class="release-list reveal">
-      <div class="release-item">
-        <button class="release-q">
-          <span class="release-version-tag">v0.2.3</span>
-          <span class="release-meta">20 Jul 2026</span>
-          <span class="plus">+</span>
-        </button>
-        <div class="release-a">
-          <ul>
-            <li>Documentation site and release notes launched</li>
-            <li>Branding and footer refresh across the site</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="release-item">
-        <button class="release-q">
-          <span class="release-version-tag">v0.2.2</span>
-          <span class="release-meta">20 Jul 2026</span>
-          <span class="plus">+</span>
-        </button>
-        <div class="release-a">
-          <ul>
-            <li>Machine learning project detection: TensorFlow, PyTorch</li>
-            <li>Improved diagnostics for USB debugging issues</li>
-            <li>Faster device discovery on reconnect</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="release-item">
-        <button class="release-q">
-          <span class="release-version-tag">v0.2.1</span>
-          <span class="release-meta">19 Jul 2026</span>
-          <span class="plus">+</span>
-        </button>
-        <div class="release-a">
-          <ul>            
-            <li>Database awareness: MongoDB, PostgreSQL, MySQL, SQLite</li>
-            <li>Clearer error messages when ADB isn't found</li>
-            <li>Minor fixes to port forwarding cleanup on exit</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="release-item">
-        <button class="release-q">
-          <span class="release-version-tag">v0.2.0</span>
-          <span class="release-meta">17 Jul 2026</span>
-          <span class="plus">+</span>
-        </button>
-        <div class="release-a">
-          <ul>
-            <li>Automatic CORS handling for backend requests</li>
-            <li>Added Next.js and Angular to project detection</li>
-            <li>Rewritten port discovery for more reliable matches</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="release-item">
-        <button class="release-q">
-          <span class="release-version-tag">v0.1.2</span>
-          <span class="release-meta">16 Jul 2026</span>
-          <span class="plus">+</span>
-        </button>
-        <div class="release-a">
-          <ul>
-            <li>Backend support added: Express, NestJS, FastAPI, Flask, Django</li>
-            <li>ADB Reverse now configures automatically on connect</li>
-            <li>Fixed Chrome not launching on some Android versions</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="release-item">
-        <button class="release-q">
-          <span class="release-version-tag">v0.1.1</span>
-          <span class="release-meta">15 Jul 2026</span>
-          <span class="plus">+</span>
-        </button>
-        <div class="release-a">
-          <ul>
-            <li>Added support for static HTML projects</li>
-            <li>Cleaner shutdown when the cable is disconnected mid-session</li>
-            <li>Small CLI output formatting fixes</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="release-item">
-        <button class="release-q">
-          <span class="release-version-tag">v0.1.0</span>
-          <span class="release-meta">14 Jul 2026</span>
-          <span class="plus">+</span>
-        </button>
-        <div class="release-a">
-          <ul>
-            <li>First public release</li>
-            <li>USB bridge, ADB Reverse, and automatic Chrome launch</li>
-            <li>React and Vite project detection</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="release-update reveal">
-      <p>Running an older version? Update to <strong style="color:var(--text);">Latest version</strong> now:</p>
-      <div class="code-row"><code>npm update -g synkin</code><button class="copy-btn" data-copy="npm update -g synkin"></button></div>
-    </div>
-  </div>
+<section class="section section-alt" id="released"> 
+  <div class="wrap"> 
+    <div class="section-head center reveal"> 
+      <span class="kicker">Release Notes</span> 
+      <h2>Every version, one place</h2> 
+      <p class="section-desc">The current release plus full version history — click any version to see what changed.</p> 
+    </div> 
+ 
+    <div class="release-latest reveal"> 
+      <div class="release-latest-top"> 
+        <div class="release-latest-info"> 
+          <span class="release-badge">Latest</span> 
+          <span class="release-version">v0.3.1</span> 
+        </div> 
+        <div class="release-date">Released 11 Sep 2026</div> 
+      </div> 
+      <ul class="release-latest-notes"> 
+        <li>New Synkin landing page launched</li> 
+        <li>Landing page now available at synkin.owsam22.com</li> 
+      </ul> 
+    </div> 
+ 
+    <div class="release-list reveal"> 
+      <div class="release-item"> 
+        <button class="release-q"> 
+          <span class="release-version-tag">v0.2.7</span> 
+          <span class="release-meta">25 Jul 2026</span> 
+          <span class="plus">+</span> 
+        </button> 
+        <div class="release-a"> 
+          <ul> 
+            <li>Backend port discovery updated</li> 
+            <li>Minor bug fixes and performance improvements</li> 
+          </ul> 
+        </div> 
+      </div> 
+ 
+      <div class="release-item"> 
+        <button class="release-q"> 
+          <span class="release-version-tag">v0.2.3</span> 
+          <span class="release-meta">20 Jul 2026</span> 
+          <span class="plus">+</span> 
+        </button> 
+        <div class="release-a"> 
+          <ul> 
+            <li>Documentation site and release notes launched</li> 
+            <li>Branding and footer refresh across the site</li> 
+          </ul> 
+        </div> 
+      </div> 
+ 
+      <div class="release-item"> 
+        <button class="release-q"> 
+          <span class="release-version-tag">v0.2.2</span> 
+          <span class="release-meta">20 Jul 2026</span> 
+          <span class="plus">+</span> 
+        </button> 
+        <div class="release-a"> 
+          <ul> 
+            <li>Machine learning project detection: TensorFlow, PyTorch</li> 
+            <li>Improved diagnostics for USB debugging issues</li> 
+            <li>Faster device discovery on reconnect</li> 
+          </ul> 
+        </div> 
+      </div> 
+ 
+      <div class="release-item"> 
+        <button class="release-q"> 
+          <span class="release-version-tag">v0.2.1</span> 
+          <span class="release-meta">19 Jul 2026</span> 
+          <span class="plus">+</span> 
+        </button> 
+        <div class="release-a"> 
+          <ul>             
+            <li>Database awareness: MongoDB, PostgreSQL, MySQL, SQLite</li> 
+            <li>Clearer error messages when ADB isn't found</li> 
+            <li>Minor fixes to port forwarding cleanup on exit</li> 
+          </ul> 
+        </div> 
+      </div> 
+ 
+      <div class="release-item"> 
+        <button class="release-q"> 
+          <span class="release-version-tag">v0.2.0</span> 
+          <span class="release-meta">17 Jul 2026</span> 
+          <span class="plus">+</span> 
+        </button> 
+        <div class="release-a"> 
+          <ul> 
+            <li>Automatic CORS handling for backend requests</li> 
+            <li>Added Next.js and Angular to project detection</li> 
+            <li>Rewritten port discovery for more reliable matches</li> 
+          </ul> 
+        </div> 
+      </div> 
+ 
+      <div class="release-item"> 
+        <button class="release-q"> 
+          <span class="release-version-tag">v0.1.2</span> 
+          <span class="release-meta">16 Jul 2026</span> 
+          <span class="plus">+</span> 
+        </button> 
+        <div class="release-a"> 
+          <ul> 
+            <li>Backend support added: Express, NestJS, FastAPI, Flask, Django</li> 
+            <li>ADB Reverse now configures automatically on connect</li> 
+            <li>Fixed Chrome not launching on some Android versions</li> 
+          </ul> 
+        </div> 
+      </div> 
+ 
+      <div class="release-item"> 
+        <button class="release-q"> 
+          <span class="release-version-tag">v0.1.1</span> 
+          <span class="release-meta">15 Jul 2026</span> 
+          <span class="plus">+</span> 
+        </button> 
+        <div class="release-a"> 
+          <ul> 
+            <li>Added support for static HTML projects</li> 
+            <li>Cleaner shutdown when the cable is disconnected mid-session</li> 
+            <li>Small CLI output formatting fixes</li> 
+          </ul> 
+        </div> 
+      </div> 
+ 
+      <div class="release-item"> 
+        <button class="release-q"> 
+          <span class="release-version-tag">v0.1.0</span> 
+          <span class="release-meta">14 Jul 2026</span> 
+          <span class="plus">+</span> 
+        </button> 
+        <div class="release-a"> 
+          <ul> 
+            <li>First public release</li> 
+            <li>USB bridge, ADB Reverse, and automatic Chrome launch</li> 
+            <li>React and Vite project detection</li> 
+          </ul> 
+        </div> 
+      </div> 
+    </div> 
+ 
+    <div class="release-update reveal"> 
+      <p>Running an older version? Update to <strong style="color:var(--text);">Latest version</strong> now:</p> 
+      <div class="code-row"><code>npm update -g synkin</code><button class="copy-btn" data-copy="npm update -g synkin"></button></div> 
+    </div> 
+  </div> 
 </section>
 
 <section class="section" id="faq">
