@@ -1039,6 +1039,11 @@
   color: var(--text-faint, #888);
   margin-top: 4px;
 }
+.form-note a {
+  color: var(--accent, #3b82f6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
 
 /* Responsive Scaling for Small Screens */
 @media (max-width: 480px) {
@@ -1971,6 +1976,9 @@
 
         <button type="submit" class="btn btn-primary submit-btn">Submit Message</button>
         <span class="form-note">We review all submissions within a day.</span>
+        <span class="form-note">This Form is powered by 
+          <a href="https://formtake.owsam22.com" target="_blank" rel="noopener">FormTake</a>
+        </span>
       </form>
     </div>
   </div>
