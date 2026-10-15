@@ -291,6 +291,8 @@
     height:64px; display:flex; align-items:center; justify-content:space-between;
   }
   .logo{display:flex; align-items:center; gap:9px; font-family:var(--display); font-weight:600; font-size:18px; letter-spacing:-0.02em;}
+  .logo-copy{display:flex; flex-direction:column; line-height:1.1;}
+  .logo-byline{font-size:10px; font-weight:400; letter-spacing:0; color:var(--text-dim); white-space:nowrap;}
   .logo-mark{
     width:20px; height:20px; border-radius:5px;
     background:linear-gradient(160deg, var(--accent), var(--accent-dim));
@@ -1143,6 +1145,12 @@
   margin: 0 0 8px 0;
 }
 
+.footer-logo-hub .brand-byline {
+  color: #a3b3c2;
+  font-size: 0.9rem;
+  margin: -4px 0 12px;
+}
+
 .footer-logo-hub .brand-tagline {
   color: #6c7d93;
   font-size: 1.1rem;
@@ -1247,7 +1255,10 @@
 
 <header>
   <nav>
-    <div class="logo"><img src="synkin-icon-white.svg" alt="synkin logo image">Synkin</div>
+    <div class="logo">
+      <img src="synkin-icon-white.svg" alt="synkin logo image">
+      <span class="logo-copy">Synkin<span class="logo-byline">by owsam22</span></span>
+    </div>
 
     <div class="nav-links" id="navLinks">
       <a href="#requirements">Requirements</a>
@@ -2050,6 +2061,7 @@
       <img src="synkin-icon-white.svg" alt="Synkin Icon">
     </div>
     <h2 class="brand-title">Synkin</h2>
+    <p class="brand-byline">by owsam22</p>
     <p class="brand-tagline">Instantly preview your localhost on Android over USB.</p>
   </div>
 
